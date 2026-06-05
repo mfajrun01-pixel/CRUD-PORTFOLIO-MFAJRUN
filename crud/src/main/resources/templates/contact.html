@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - M. Fajrun A Adillah Bustam</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" th:href="@{/}">
+                <i class="bi bi-code-slash"></i> Portofolio
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/about}">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" th:href="@{/contact}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/gallery}">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/projects}">Project</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/skills}">Skills</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Header -->
+    <section class="page-header mt-5 pt-5 bg-light">
+        <div class="container text-center py-5">
+            <h1 class="display-5 fw-bold">Hubungi Saya</h1>
+            <p class="lead text-muted">Mari berkolaborasi dan buat sesuatu yang amazing!</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-section py-5">
+        <div class="container">
+            <!-- Alert untuk feedback (hidden by default) -->
+            <div id="alertSuccess" class="alert alert-success alert-dismissible fade show d-none" role="alert">
+                <i class="bi bi-check-circle-fill me-2"></i>
+                <span id="alertMessage"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div id="alertError" class="alert alert-danger alert-dismissible fade show d-none" role="alert">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                <span id="alertErrorMessage"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            <div class="row g-5">
+                <!-- Informasi Kontak -->
+<div class="col-lg-4">
+    <div class="card border-0 shadow-sm h-100">
+        <div class="card-body p-4">
+            <h4 class="fw-bold mb-4">Informasi Kontak</h4>
+            
+            <!-- WhatsApp -->
+            <a th:href="@{https://wa.me/62895800940017?text=Halo%20Fajrun%2C%20saya%20tertarik%20dengan%20portofolio%20Anda}" 
+               target="_blank" 
+               class="text-decoration-none contact-link">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="icon-box bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3" 
+                         style="width: 50px; height: 50px;">
+                        <i class="bi bi-whatsapp fs-5"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-1 text-dark">WhatsApp</h6>
+                        <p class="text-muted mb-0">0895-8009-40017</p>
+                    </div>
+                    <div class="ms-auto">
+                        <i class="bi bi-arrow-up-right-circle text-muted"></i>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Telepon -->
+            <a th:href="@{tel:+62895800940017}" 
+               class="text-decoration-none contact-link">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="icon-box bg-info text-white rounded-circle d-flex align-items-center justify-content-center me-3" 
+                         style="width: 50px; height: 50px;">
+                        <i class="bi bi-telephone fs-5"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-1 text-dark">Telepon</h6>
+                        <p class="text-muted mb-0">0895-8009-40017</p>
+                    </div>
+                    <div class="ms-auto">
+                        <i class="bi bi-arrow-up-right-circle text-muted"></i>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Email -->
+            <a th:href="@{mailto:mfajrun01@student.ciputra.ac.id?subject=Portfolio%20Inquiry&body=Halo%20Fajrun%2C%20saya%20tertarik%20untuk%20berkolaborasi}" 
+               class="text-decoration-none contact-link">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="icon-box bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" 
+                         style="width: 50px; height: 50px;">
+                        <i class="bi bi-envelope fs-5"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-1 text-dark">Email</h6>
+                        <p class="text-muted mb-0">mfajrun01@student.ciputra.ac.id</p>
+                    </div>
+                    <div class="ms-auto">
+                        <i class="bi bi-arrow-up-right-circle text-muted"></i>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Lokasi -->
+            <a th:href="@{https://maps.google.com/?q=Makassar+Sulawesi+Selatan+Indonesia}" 
+               target="_blank" 
+               class="text-decoration-none contact-link">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="icon-box bg-danger text-white rounded-circle d-flex align-items-center justify-content-center me-3" 
+                         style="width: 50px; height: 50px;">
+                        <i class="bi bi-geo-alt fs-5"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-1 text-dark">Lokasi</h6>
+                        <p class="text-muted mb-0">Makassar, Indonesia</p>
+                    </div>
+                    <div class="ms-auto">
+                        <i class="bi bi-arrow-up-right-circle text-muted"></i>
+                    </div>
+                </div>
+            </a>
+
+            <hr class="my-4">
+            
+            <h6 class="fw-bold mb-3">Sosial Media & Portofolio</h6>
+            
+            <!-- GitHub -->
+            <a th:href="@{https://github.com/mfajrun01-pixel}" 
+               target="_blank" 
+               class="text-decoration-none contact-link">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="icon-box bg-dark text-white rounded-circle d-flex align-items-center justify-content-center me-3" 
+                         style="width: 50px; height: 50px;">
+                        <i class="bi bi-github fs-5"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-1 text-dark">GitHub</h6>
+                        <p class="text-muted mb-0">github.com/mfajrun01-pixel</p>
+                    </div>
+                    <div class="ms-auto">
+                        <i class="bi bi-box-arrow-up-right text-muted"></i>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Instagram -->
+            <a th:href="@{https://instagram.com/fajerunn10}" 
+               target="_blank" 
+               class="text-decoration-none contact-link">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="icon-box text-white rounded-circle d-flex align-items-center justify-content-center me-3" 
+                         style="width: 50px; height: 50px; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);">
+                        <i class="bi bi-instagram fs-5"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-1 text-dark">Instagram</h6>
+                        <p class="text-muted mb-0">@fajerunn10</p>
+                    </div>
+                    <div class="ms-auto">
+                        <i class="bi bi-box-arrow-up-right text-muted"></i>
+                    </div>
+                </div>
+            </a>
+
+            <!-- LinkedIn  -->
+            <a th:href="@{https://linkedin.com/in/mfajrun01}" 
+               target="_blank" 
+               class="text-decoration-none contact-link">
+                <div class="d-flex align-items-center">
+                    <div class="icon-box text-white rounded-circle d-flex align-items-center justify-content-center me-3" 
+                         style="width: 50px; height: 50px; background-color: #0A66C2;">
+                        <i class="bi bi-linkedin fs-5"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-1 text-dark">LinkedIn</h6>
+                        <p class="text-muted mb-0">linkedin.com/in/mfajrun01</p>
+                    </div>
+                    <div class="ms-auto">
+                        <i class="bi bi-box-arrow-up-right text-muted"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+                <!-- Form Kontak -->
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4 p-lg-5">
+                            <h4 class="fw-bold mb-4">Kirim Pesan</h4>
+                            <form id="contactForm" novalidate>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label fw-semibold">Nama <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="nama" 
+                                           placeholder="Masukkan nama lengkap Anda" required>
+                                    <div class="invalid-feedback">Nama tidak boleh kosong (minimal 3 karakter)</div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="email" class="form-label fw-semibold">Email <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" id="email" 
+                                           placeholder="Masukkan alamat email Anda" required>
+                                    <div class="invalid-feedback">Masukkan email yang valid (contoh: nama@domain.com)</div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="subjek" class="form-label fw-semibold">Subjek</label>
+                                    <input type="text" class="form-control" id="subjek" 
+                                           placeholder="Subjek pesan">
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="pesan" class="form-label fw-semibold">Pesan <span class="text-danger">*</span></label>
+                                    <textarea class="form-control" id="pesan" rows="5" 
+                                              placeholder="Tulis pesan Anda di sini..." required></textarea>
+                                    <div class="invalid-feedback">Pesan tidak boleh kosong (minimal 10 karakter)</div>
+                                    <div class="form-text">
+                                        <span id="charCount">0</span>/500 karakter
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary btn-lg px-5">
+                                    <i class="bi bi-send me-2"></i>Kirim Pesan
+                                </button>
+                                <button type="reset" class="btn btn-outline-secondary btn-lg ms-2">
+                                    <i class="bi bi-arrow-counterclockwise"></i> Reset
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Konfirmasi -->
+    <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="confirmModalLabel">
+                        <i class="bi bi-check-circle me-2"></i>Konfirmasi Pengiriman
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center py-4">
+                    <i class="bi bi-envelope-check text-primary display-1 mb-3"></i>
+                    <h5>Pesan Siap Dikirim!</h5>
+                    <p id="modalPreview" class="text-muted"></p>
+                    <p class="mb-0">Apakah Anda yakin ingin mengirim pesan ini?</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary" id="confirmSend">
+                        <i class="bi bi-send me-1"></i> Ya, Kirim!
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 M. Fajrun A Adillah Bustam. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/js/script.js}"></script>
+</body>
+</html>

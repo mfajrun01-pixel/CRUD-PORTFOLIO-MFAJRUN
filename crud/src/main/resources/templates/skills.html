@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - M. Fajrun A Adillah Bustam</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" th:href="@{/}">
+                <i class="bi bi-code-slash"></i> Portofolio
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/about}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/contact}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/gallery}">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/projects}">Project</a></li>
+                    <li class="nav-item"><a class="nav-link active" th:href="@{/skills}">Skills</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Skills Header -->
+    <section class="page-header mt-5 pt-5 bg-light">
+        <div class="container text-center py-5">
+            <h1 class="display-5 fw-bold">My Skills</h1>
+            <p class="lead text-muted">Kemampuan dan teknologi yang saya kuasai</p>
+        </div>
+    </section>
+
+    <!-- ========== FORM ========== -->
+    <th:block th:if="${skill != null}">
+        <section class="py-4">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <h4 class="fw-bold mb-4" th:text="${skill.id != null ? 'Edit Skill' : 'Tambah Skill'}"></h4>
+                                <form th:action="@{${skill.id != null ? '/skills/update/' + skill.id : '/skills/save'}}" 
+                                      th:object="${skill}" method="post">
+                                    <div class="mb-3">
+                                        <label class="form-label fw-bold">Nama Skill</label>
+                                        <input type="text" class="form-control" th:field="*{nama}" placeholder="HTML5, CSS3, JavaScript..." required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label fw-bold">Level (%)</label>
+                                        <input type="number" class="form-control" th:field="*{level}" min="0" max="100" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label fw-bold">Kategori</label>
+                                        <select class="form-control" th:field="*{kategori}">
+                                            <option value="frontend">Frontend</option>
+                                            <option value="backend">Backend</option>
+                                            <option value="tools">Tools</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary"><i class="bi bi-check-lg me-1"></i>Simpan</button>
+                                    <a th:href="@{/skills}" class="btn btn-secondary"><i class="bi bi-x-lg me-1"></i>Batal</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </th:block>
+
+    <!-- ========== SKILLS CONTENT ========== -->
+    <th:block th:unless="${skill != null}">
+        <section class="container mt-4">
+            <a th:href="@{/skills/add}" class="btn btn-primary">
+                <i class="bi bi-plus-lg me-1"></i>Tambah Skill
+            </a>
+        </section>
+
+        <section class="skills-section py-5">
+            <div class="container">
+                <div class="row g-5">
+                    <!-- Frontend Skills -->
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <h4 class="fw-bold mb-4">
+                                    <i class="bi bi-palette text-primary me-2"></i>Frontend Development
+                                </h4>
+                                
+                                <div class="skill-item mb-4" th:each="skill : ${frontendSkills}">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span th:text="${skill.nama}">Skill</span>
+                                        <span class="badge bg-primary" th:text="${skill.level + '%'}">0%</span>
+                                    </div>
+                                    <div class="progress" style="height: 12px;">
+                                        <div class="progress-bar" 
+                                             th:style="'width:' + ${skill.level} + '%'"
+                                             th:classappend="${skill.level >= 80 ? 'bg-success' : skill.level >= 60 ? 'bg-info' : skill.level >= 40 ? 'bg-warning' : 'bg-danger'}">
+                                        </div>
+                                    </div>
+                                    <div class="mt-1">
+                                        <a th:href="@{/skills/edit/{id}(id=${skill.id})}" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></a>
+                                        <a th:href="@{/skills/delete/{id}(id=${skill.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Yakin hapus?')"><i class="bi bi-trash"></i></a>
+                                    </div>
+                                </div>
+                                <p th:if="${#lists.isEmpty(frontendSkills)}" class="text-muted">Belum ada skill frontend.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Backend Skills -->
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body p-4">
+                                <h4 class="fw-bold mb-4">
+                                    <i class="bi bi-server text-success me-2"></i>Backend Development
+                                </h4>
+                                
+                                <div class="skill-item mb-4" th:each="skill : ${backendSkills}">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span th:text="${skill.nama}">Skill</span>
+                                        <span class="badge bg-success" th:text="${skill.level + '%'}">0%</span>
+                                    </div>
+                                    <div class="progress" style="height: 12px;">
+                                        <div class="progress-bar" 
+                                             th:style="'width:' + ${skill.level} + '%'"
+                                             th:classappend="${skill.level >= 80 ? 'bg-success' : skill.level >= 60 ? 'bg-info' : skill.level >= 40 ? 'bg-warning' : 'bg-danger'}">
+                                        </div>
+                                    </div>
+                                    <div class="mt-1">
+                                        <a th:href="@{/skills/edit/{id}(id=${skill.id})}" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></a>
+                                        <a th:href="@{/skills/delete/{id}(id=${skill.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Yakin hapus?')"><i class="bi bi-trash"></i></a>
+                                    </div>
+                                </div>
+                                <p th:if="${#lists.isEmpty(backendSkills)}" class="text-muted">Belum ada skill backend.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tools -->
+                    <div class="col-12">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <h4 class="fw-bold mb-4 text-center">
+                                    <i class="bi bi-tools text-secondary me-2"></i>Tools & Other Skills
+                                </h4>
+                                <div class="row g-3 text-center">
+                                    <div class="col-6 col-md-3" th:each="tool : ${tools}">
+                                        <div class="p-3 border rounded-3 hover-card">
+                                            <i class="bi bi-tools display-6 text-primary"></i>
+                                            <p class="mt-2 mb-0 fw-semibold" th:text="${tool.nama}">Tool</p>
+                                            <div class="mt-1">
+                                                <a th:href="@{/skills/edit/{id}(id=${tool.id})}" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></a>
+                                                <a th:href="@{/skills/delete/{id}(id=${tool.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Yakin hapus?')"><i class="bi bi-trash"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p th:if="${#lists.isEmpty(tools)}" class="text-muted col-12">Belum ada tools.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </th:block>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 M. Fajrun A Adillah Bustam. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/js/script.js}"></script>
+</body>
+</html>

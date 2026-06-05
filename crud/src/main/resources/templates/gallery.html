@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - M. Fajrun A Adillah Bustam</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- External CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+    <!-- NAVBAR  -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href th:href="@{/}">
+                <i class="bi bi-code-slash"></i> Portofolio
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href th:href="@{/}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href th:href="@{/about}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href th:href="@{/contact}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link active" href th:href="@{/gallery}">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href th:href="@{/projects}">Project</a></li>
+                    <li class="nav-item"><a class="nav-link" href th:href="@{/skills}">Skills</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- GALLERY HEADER  -->
+    <section class="page-header mt-5 pt-5 bg-light">
+        <div class="container text-center py-5">
+            <h1 class="display-5 fw-bold">Gallery</h1>
+            <p class="lead text-muted">Kumpulan momen dan karya terbaik</p>
+        </div>
+    </section>
+
+   <!-- GALLERY GRID  -->
+<section class="gallery-section py-5">
+    <div class="container">
+        
+        <!-- Filter Buttons -->
+        <div class="text-center mb-4">
+            <button class="btn btn-outline-primary btn-sm mx-1 filter-btn active" data-filter="all">Semua</button>
+            <button class="btn btn-outline-primary btn-sm mx-1 filter-btn" data-filter="web">Web</button>
+            <button class="btn btn-outline-primary btn-sm mx-1 filter-btn" data-filter="ui">UI/UX</button>
+            <button class="btn btn-outline-primary btn-sm mx-1 filter-btn" data-filter="mobile">Mobile</button>
+        </div>
+
+        <div class="row g-4" id="galleryGrid">
+            
+            <!-- ITEM 1 - SISTEM INFORMASI AKADEMIK -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="web">
+                <div class="card border-0 shadow-sm gallery-card">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" 
+                         class="card-img-top" alt="Sistem Informasi Akademik"
+                         data-bs-toggle="modal" data-bs-target="#galleryModal"
+                         onclick="openModal(this.src, 'Sistem Informasi Akademik', 'Website manajemen kampus terintegrasi untuk pengelolaan data mahasiswa, dosen, mata kuliah, KRS online, jadwal perkuliahan, dan monitoring nilai akademik secara real-time.')">
+                    <div class="gallery-overlay">
+                        <div class="text-center text-white">
+                            <i class="bi bi-mortarboard display-6 mb-2"></i>
+                            <p class="mb-0 fw-semibold">Sistem Informasi Akademik</p>
+                            <small class="badge bg-light text-dark mt-1">Full Stack • PHP • MySQL</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!--  ITEM 2 - WEBSITE E-LEARNING  -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="web">
+                <div class="card border-0 shadow-sm gallery-card">
+                    <img src="https://images.unsplash.com/photo-1593720213428-28a5b9e94613?w=600&h=400&fit=crop" 
+                         class="card-img-top" alt="Website E-Learning"
+                         data-bs-toggle="modal" data-bs-target="#galleryModal"
+                         onclick="openModal(this.src, 'Website E-Learning', 'Platform pembelajaran online dengan fitur video pembelajaran, kuis interaktif, forum diskusi, upload tugas, sistem penilaian otomatis, dan sertifikat digital untuk peserta.')">
+                    <div class="gallery-overlay">
+                        <div class="text-center text-white">
+                            <i class="bi bi-laptop display-6 mb-2"></i>
+                            <p class="mb-0 fw-semibold">Website E-Learning</p>
+                            <small class="badge bg-light text-dark mt-1">Web App • Laravel • PostgreSQL</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ITEM 3 - PERSONAL PORTFOLIO -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="web">
+                <div class="card border-0 shadow-sm gallery-card">
+                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600&h=400&fit=crop" 
+                         class="card-img-top" alt="Personal Portfolio"
+                         data-bs-toggle="modal" data-bs-target="#galleryModal"
+                         onclick="openModal(this.src, 'Personal Portfolio', 'Website portofolio pribadi yang menampilkan profil, pengalaman, keterampilan, proyek, dan kontak dengan desain responsif dan interaktif menggunakan animasi CSS dan JavaScript.')">
+                    <div class="gallery-overlay">
+                        <div class="text-center text-white">
+                            <i class="bi bi-person-badge display-6 mb-2"></i>
+                            <p class="mb-0 fw-semibold">Personal Portfolio</p>
+                            <small class="badge bg-light text-dark mt-1">Frontend • HTML • CSS • JS</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ITEM 4 - DASHBOARD ANALYTICS (UI/UX) -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="ui">
+                <div class="card border-0 shadow-sm gallery-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" 
+                         class="card-img-top" alt="Dashboard Analytics"
+                         data-bs-toggle="modal" data-bs-target="#galleryModal"
+                         onclick="openModal(this.src, 'Dashboard Analytics', 'Desain dashboard analitik interaktif dengan visualisasi data real-time, grafik dinamis, dan laporan ekspor multi-format untuk monitoring bisnis.')">
+                    <div class="gallery-overlay">
+                        <div class="text-center text-white">
+                            <i class="bi bi-graph-up display-6 mb-2"></i>
+                            <p class="mb-0 fw-semibold">Dashboard Analytics</p>
+                            <small class="badge bg-light text-dark mt-1">UI/UX • Data Visualization</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ===== ITEM 5 - RESPONSIVE WEB DESIGN (MOBILE) ===== -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="mobile">
+                <div class="card border-0 shadow-sm gallery-card">
+                    <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?w=600&h=400&fit=crop" 
+                         class="card-img-top" alt="Responsive Web Design"
+                         data-bs-toggle="modal" data-bs-target="#galleryModal"
+                         onclick="openModal(this.src, 'Responsive Web Design', 'Implementasi desain responsif mobile-first untuk berbagai perangkat menggunakan Bootstrap 5 Grid System, Flexbox, dan CSS Media Queries.')">
+                    <div class="gallery-overlay">
+                        <div class="text-center text-white">
+                            <i class="bi bi-phone display-6 mb-2"></i>
+                            <p class="mb-0 fw-semibold">Responsive Web Design</p>
+                            <small class="badge bg-light text-dark mt-1">Mobile • Bootstrap 5</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ITEM 6 - WIREFRAME & PROTOTYPE (UI/UX) -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="ui">
+                <div class="card border-0 shadow-sm gallery-card">
+                    <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=600&h=400&fit=crop" 
+                         class="card-img-top" alt="Wireframe & Prototype"
+                         data-bs-toggle="modal" data-bs-target="#galleryModal"
+                         onclick="openModal(this.src, 'Wireframe & Prototype', 'Pembuatan wireframe low-fidelity dan high-fidelity prototype menggunakan Figma untuk aplikasi web dan mobile sebelum tahap development.')">
+                    <div class="gallery-overlay">
+                        <div class="text-center text-white">
+                            <i class="bi bi-pencil-square display-6 mb-2"></i>
+                            <p class="mb-0 fw-semibold">Wireframe & Prototype</p>
+                            <small class="badge bg-light text-dark mt-1">UI/UX • Figma</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+    <!-- MODAL -->
+    <div class="modal fade" id="galleryModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 overflow-hidden">
+                <div class="modal-header bg-primary text-white border-0">
+                    <h5 class="modal-title" id="modalHeaderTitle">
+                        <i class="bi bi-images me-2"></i>Detail Project
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="position-relative">
+                        <img id="modalImage" src="" alt="" class="img-fluid w-100" style="max-height: 400px; object-fit: cover;">
+                        <div class="position-absolute bottom-0 start-0 end-0 p-3" style="background: linear-gradient(transparent, rgba(0,0,0,0.7));">
+                            <h5 id="modalTitle" class="text-white mb-1 fw-bold"></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light">
+                    <p id="modalDescription" class="text-muted me-auto mb-0"></p>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                        <i class="bi bi-x-circle me-1"></i> Tutup
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 M. Fajrun A Adillah Bustam. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/js/script.js}"></script>
+    
+</body>
+</html>

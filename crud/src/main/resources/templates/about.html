@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - M. Fajrun A Adillah Bustam</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" th:href="@{/}">
+                <i class="bi bi-code-slash"></i> Portofolio
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" th:href="@{/about}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/contact}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/gallery}">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/projects}">Project</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/skills}">Skills</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Header -->
+    <section class="page-header mt-5 pt-5 bg-light">
+        <div class="container text-center py-5">
+            <h1 class="display-5 fw-bold">About Me</h1>
+            <p class="lead text-muted">Mari berkenalan lebih dekat</p>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-section py-5">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5 text-center">
+                    <div class="about-img img-fluid rounded-4 shadow-lg d-flex align-items-center justify-content-center" 
+                         style="width: 350px; height: 350px; background: linear-gradient(135deg, #6C63FF, #0d6efd); font-size: 120px; color: white; font-weight: bold;">
+                         MF
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <h2 class="fw-bold mb-3">M. Fajrun A Adillah Bustam</h2>
+                    <span class="badge bg-primary mb-3 px-3 py-2">Full Stack Developer</span>
+                    <p class="text-muted lead mb-4">
+                        Saya adalah seorang developer yang passionate dalam membuat aplikasi web yang indah dan functional.
+                        Dengan pengalaman di berbagai proyek, saya selalu berusaha memberikan solusi terbaik 
+                        untuk setiap tantangan digital.
+                    </p>
+                    <div class="row mt-4">
+                        <div class="col-sm-6">
+                            <p><i class="bi bi-geo-alt text-primary me-2"></i> <strong>Lokasi:</strong> Makassar, Indonesia</p>
+                            <p><i class="bi bi-envelope text-primary me-2"></i> <strong>Email:</strong> mfajrun01@student.ciputra.ac.id</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p><i class="bi bi-phone text-primary me-2"></i> <strong>Telepon:</strong> +62 895800940017</p>
+                            <p><i class="bi bi-briefcase text-primary me-2"></i> <strong>Posisi:</strong> Full Stack Developer</p>
+                        </div>
+                    </div>
+                    <a th:href="@{/contact}" class="btn btn-primary mt-3">
+                        <i class="bi bi-chat-dots"></i> Hubungi Saya
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience-section py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">Experience</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100 hover-card">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-star-fill text-warning fs-3 me-3"></i>
+                                <h5 class="card-title mb-0">Full Stack Developer</h5>
+                            </div>
+                            <h6 class="text-primary">Sistem Informasi Akademik</h6>
+                            <p class="text-muted">Mengembangkan Sistem Informasi Akademik menggunakan PHP dan MySQL. Mengintegrasikan fitur KRS online, jadwal perkuliahan, manajemen data  mahasiswa dan dosen, serta monitoring nilai secara real-time.</p>
+                            <span class="badge bg-success">2025 - sekarang</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100 hover-card">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-star-fill text-warning fs-3 me-3"></i>
+                                <h5 class="card-title mb-0">Web Developer</h5>
+                            </div>
+                            <h6 class="text-primary">Website E-Learning</h6>
+                            <p class="text-muted">Mengembangkan website e-learning menggunakan HTML, CSS, dan JavaScript. Menciptakan konten interaktif dan pengalaman belajar yang menarik bagi pengguna.</p>
+                            <span class="badge bg-info">2025 - sekarang</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100 hover-card">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-star-fill text-warning fs-3 me-3"></i>
+                                <h5 class="card-title mb-0">Frontend Developer</h5>
+                            </div>
+                            <h6 class="text-primary">Personal Portfolio</h6>
+                            <p class="text-muted">Mengembangkan tampilan frontend untuk website portofolio pribadi menggunakan HTML, CSS, dan JavaScript. Menciptakan pengalaman browsing yang menarik dan responsif bagi pengguna.</p>
+                            <span class="badge bg-secondary">2025 - sekarang</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 M. Fajrun A Adillah Bustam. All rights reserved.</p>
+            <small><i class="bi bi-geo-alt"></i> Makassar, Indonesia</small>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/js/script.js}"></script>
+</body>
+</html>
